@@ -1,12 +1,14 @@
-name: app-build-action
-#推送Tag时触发
+name: app-build-action-main
+
 on:
+  workflow_dispatch:
   push:
     tags:
-      - "v*"
+      - "main_v*"
+      
 jobs:
   build-android:
-    runs-on: macos-latest
+    runs-on: android-latest
     permissions:
       contents: write
     steps:
